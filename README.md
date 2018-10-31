@@ -1,24 +1,24 @@
-#Drongus Project
-###by Tim Zhang, Zach Rossi, and Julian Lioanag
+# Drongus Project
+### by Tim Zhang, Zach Rossi, and Julian Lioanag
 
-##Movement
+## Movement
 
-[ ] Using motors
-[ ] All movement directions
-[ ] Speed controller
-[ ] Gyroscope
+- [x] Using motors
+- [x] All movement directions
+- [x] Speed controller
+- [x] Gyroscope
 
-##Vision
+## Vision
 
-[ ] OpenCV setup
-[ ] Outline loops
+- [x] OpenCV setup
+- [x] Outline loops
 
-##Automation
+## Automation
 
-[ ] Takeoff
-[ ] Scan for loops
-[ ] Angle toward loop
-[ ] Fly through loop
-[ ] Land safely
+- [x] Takeoff
+- [x] Scan for loops
+- [x] Angle toward loop
+- [x] Fly through loop
+- [x] Land safely
 
 > Flying things are nice :weary:
