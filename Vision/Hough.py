@@ -19,14 +19,14 @@ while(True):
         #vid = cv2.drawContours(red, contours, -1, (0,255,0), 3)
         
         try:
-                circles = cv2.HoughCircles(imgray, cv2.HOUGH_GRADIENT, 1, 20, param1 = 50, param2 = 30, minRadius = 0, maxRadius = 0)
+                circles = cv2.HoughCircles(imgray, cv2.HOUGH_GRADIENT, 1, 500, param1 = 50, param2 = 30, minRadius = 0, maxRadius = 0)
                 circles = np.uint16(np.around(circles))
                 x_values = []
                 y_values = []
                 radii = []
                 for i in circles[0,:]:
-                        #cv2.circle(red, (i[0],i[1]),i[2], (0,255,0),2) # Outline
-                        #cv2.circle(red, (i[0],i[1]),2, (0,0,255),3) # Center
+                        cv2.circle(red, (i[0],i[1]),i[2], (0,255,0),2) # Outline
+                        cv2.circle(red, (i[0],i[1]),2, (0,0,255),3) # Center
                         x = i[0]
                         y = i[1]
                         radius = i[2]
@@ -36,8 +36,8 @@ while(True):
                 avg_x = int(sum(x_values) / len(x_values))
                 avg_y = int(sum(y_values) / len(y_values))
                 avg_r = int(sum(radii) / len(radii))
-                cv2.circle(red, (avg_x,avg_y),avg_r, (0,255,0),2) # Outline
-                cv2.circle(red, (avg_x,avg_y),2, (0,0,255),3) # Center
+                #cv2.circle(red, (avg_x,avg_y),avg_r, (0,255,255),2) # Outline
+                #cv2.circle(red, (avg_x,avg_y),2, (0,0,255),3) # Center
         except:                
                 print('peepee')
         
