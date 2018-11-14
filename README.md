@@ -3,10 +3,10 @@
 
 ## Movement
 
-- [x] Using motors
-- [x] All movement directions
-- [x] Speed controller
-- [x] Gyroscope
+- [ ] Using motors
+- [ ] All movement directions
+- [ ] Speed controller
+- [ ] Gyroscope
 
 ## Vision
 
@@ -15,10 +15,10 @@
 
 ## Automation
 
-- [x] Takeoff
-- [x] Scan for loops
-- [x] Angle toward loop
-- [x] Fly through loop
-- [x] Land safely
+- [ ] Takeoff
+- [ ] Scan for loops
+- [ ] Angle toward loop
+- [ ] Fly through loop
+- [ ] Land safely
 
 > Flying things are nice :weary:
