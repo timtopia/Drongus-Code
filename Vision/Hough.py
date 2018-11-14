@@ -36,8 +36,8 @@ while(True):
                 avg_x = int(sum(x_values) / len(x_values))
                 avg_y = int(sum(y_values) / len(y_values))
                 avg_r = int(sum(radii) / len(radii))
-                #cv2.circle(red, (avg_x,avg_y),avg_r, (0,255,255),2) # Outline
-                #cv2.circle(red, (avg_x,avg_y),2, (0,0,255),3) # Center
+                cv2.circle(red, (avg_x,avg_y),avg_r, (0,255,255),2) # Outline
+                cv2.circle(red, (avg_x,avg_y),2, (0,0,255),3) # Center
         except:                
                 print('peepee')
         

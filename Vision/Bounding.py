@@ -24,7 +24,7 @@ while(True):
         radii = []
         for cnt in contours:
                 perimeter = cv2.arcLength(cnt, True)
-                if perimeter > 550:
+                if perimeter > 500:
                         # Get enclosing circles
                         (x,y),radius = cv2.minEnclosingCircle(cnt)
                         center = (int(x), int(y))
