@@ -32,4 +32,4 @@ class MotorController:
 
   def thrust(self, speed):
     throttle = self.throttle
-    self.set_motos(throttle + speed, throttle + speed, throttle + speed, throttle + speed)
+    self.set_motors(throttle + speed, throttle + speed, throttle + speed, throttle + speed)
