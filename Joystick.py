@@ -1,4 +1,5 @@
 import pygame
+import MotorController
 
 # Define some colors
 BLACK    = (   0,   0,   0)
@@ -127,7 +128,7 @@ while done==False:
     pygame.display.flip()
 
     # Limit to 20 frames per second
-    clock.tick(20)
+    clock.tick(20)z
     
 # Close the window and quit.
 # If you forget this line, the program will 'hang'
