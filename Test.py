@@ -1,16 +1,18 @@
 import MotorController
-import pygame
-pygame.init()
-mc = MotorController.MotorController()
-multiplier = 5;
-pygame.joystick.init()
-joystick = pygame.joystick.Joystick(0)
-joystick.init()
-clock = pygame.time.Clock()
+import MyJoystick
+import time
 
+#write a for loop that prints out all the button values
+
+mc = MotorController.
+joy = MyJoystick.Joystick()
 
 while True:
-    axis1 = joystick.get_axis(1)
-    print(axis1)
-    #mc.thrust(axis1*multiplier)
-    clock.tick(20)
+    print("\n" * 100)
+    values = joy.update()
+
+    for i in values:
+        print("{}\t{}".format(i, values[i]))
+
+    time.sleep(0.1)
+            

@@ -5,18 +5,19 @@ import MotorController
 BLACK    = (   0,   0,   0)
 WHITE    = ( 255, 255, 255)
 
-# This is a simple class that will help us print to the screen
+# This is a simple class that will help us log to the screen
 # It has nothing to do with the joysticks, just outputting the
 # information.
-class TextPrint:
+class Textlog:
     def __init__(self):
         self.reset()
         self.font = pygame.font.Font(None, 20)
 
-    def print(self, screen, textString):
-        textBitmap = self.font.render(textString, True, BLACK)
-        screen.blit(textBitmap, [self.x, self.y])
-        self.y += self.line_height
+    def log(self, screen, textString):
+        #textBitmap = self.font.render(textString, True, BLACK)
+        #screen.blit(textBitmap, [self.x, self.y])
+        #self.y += self.line_height
+        print(textString)
         
     def reset(self):
         self.x = 10
@@ -47,11 +48,12 @@ clock = pygame.time.Clock()
 # Initialize the joysticks
 pygame.joystick.init()
     
-# Get ready to print
-textPrint = TextPrint()
+# Get ready to log
+textlog = Textlog()
 
 # -------- Main Program Loop -----------
 while done==False:
+    print("\n" * 100)
     # EVENT PROCESSING STEP
     for event in pygame.event.get(): # User did something
         if event.type == pygame.QUIT: # If user clicked close
@@ -68,58 +70,58 @@ while done==False:
     # First, clear the screen to white. Don't put other drawing commands
     # above this, or they will be erased with this command.
     screen.fill(WHITE)
-    textPrint.reset()
+    textlog.reset()
 
     # Get count of joysticks
     joystick_count = pygame.joystick.get_count()
 
-    textPrint.print(screen, "Number of joysticks: {}".format(joystick_count) )
-    textPrint.indent()
+    textlog.log(screen, "Number of joysticks: {}".format(joystick_count) )
+    textlog.indent()
     
     # For each joystick:
     for i in range(joystick_count):
         joystick = pygame.joystick.Joystick(i)
         joystick.init()
     
-        textPrint.print(screen, "Joystick {}".format(i) )
-        textPrint.indent()
+        textlog.log(screen, "Joystick {}".format(i) )
+        textlog.indent()
     
         # Get the name from the OS for the controller/joystick
         name = joystick.get_name()
-        textPrint.print(screen, "Joystick name: {}".format(name) )
+        textlog.log(screen, "Joystick name: {}".format(name) )
         
         # Usually axis run in pairs, up/down for one, and left/right for
         # the other.
         axes = joystick.get_numaxes()
-        textPrint.print(screen, "Number of axes: {}".format(axes) )
-        textPrint.indent()
+        textlog.log(screen, "Number of axes: {}".format(axes) )
+        textlog.indent()
         
         for i in range( axes ):
             axis = joystick.get_axis( i )
-            textPrint.print(screen, "Axis {} value: {:>6.3f}".format(i, axis) )
-        textPrint.unindent()
+            textlog.log(screen, "Axis {} value: {:>6.3f}".format(i, axis) )
+        textlog.unindent()
             
         buttons = joystick.get_numbuttons()
-        textPrint.print(screen, "Number of buttons: {}".format(buttons) )
-        textPrint.indent()
+        textlog.log(screen, "Number of buttons: {}".format(buttons) )
+        textlog.indent()
 
         for i in range( buttons ):
             button = joystick.get_button( i )
-            textPrint.print(screen, "Button {:>2} value: {}".format(i,button) )
-        textPrint.unindent()
+            textlog.log(screen, "Button {:>2} value: {}".format(i,button) )
+        textlog.unindent()
             
         # Hat switch. All or nothing for direction, not like joysticks.
         # Value comes back in an array.
         hats = joystick.get_numhats()
-        textPrint.print(screen, "Number of hats: {}".format(hats) )
-        textPrint.indent()
+        textlog.log(screen, "Number of hats: {}".format(hats) )
+        textlog.indent()
 
         for i in range( hats ):
             hat = joystick.get_hat( i )
-            textPrint.print(screen, "Hat {} value: {}".format(i, str(hat)) )
-        textPrint.unindent()
+            textlog.log(screen, "Hat {} value: {}".format(i, str(hat)) )
+        textlog.unindent()
         
-        textPrint.unindent()
+        textlog.unindent()
 
     
     # ALL CODE TO DRAW SHOULD GO ABOVE THIS COMMENT
