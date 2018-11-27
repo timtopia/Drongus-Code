@@ -3,14 +3,16 @@ class MotorController:
   FRONT_RIGHT = 2
   BACK_LEFT = 3
   BACK_RIGHT = 4
+  motor_vals = [0,0,0,0]
 
-  throttle = 1
+  throttle = 0.0
 
   def __init__(self):
     print ("Hello")
 
   def set_motor (self, port, value):
-    print("MOTOR ", port, " has ", value)
+    #print("MOTOR ", port, " has ", value)
+    self.motor_vals[port-1] = value
 
   def set_motors(self, fl, fr, bl, br):
       self.set_motor(self.FRONT_LEFT, fl)
@@ -33,3 +35,8 @@ class MotorController:
   def thrust(self, speed):
     throttle = self.throttle
     self.set_motors(throttle + speed, throttle + speed, throttle + speed, throttle + speed)
+
+  def display(self):
+    fl, fr, bl, br = self.motor_vals
+    print("{}\t\t{}\n\n{}\t\t{}".format(fl, fr, bl, br))
+    print(self.motor_vals)
