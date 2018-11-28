@@ -14,10 +14,11 @@ while True:
     for i in values:
         print("{}\t{}".format(i, values[i]))
 
+    mc.reset()
     mc.roll(values["LEFT_X"])
     mc.pitch(values["LEFT_Y"])
     mc.yaw(values["RIGHT_X"])
-    mc.thrust(values["RT"])
+    mc.thrust(values["RIGHT_Y"])
     mc.display()
     
     time.sleep(0.1)
