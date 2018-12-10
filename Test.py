@@ -7,7 +7,7 @@ import time
 mc = MotorController.MotorController()
 joy = MyJoystick.Joystick()
 
-while True:
+while True:joy = MyJoystick.Joystick()
     print("\n" * 100)
     values = joy.update()
 
@@ -22,4 +22,3 @@ while True:
     mc.display()
     
     time.sleep(0.1)
-            
