@@ -8,7 +8,7 @@ mc = MotorController.MotorController()
 joy = MyJoystick.Joystick()
 
 while True:
-    print("\n" * 500)
+    print("\n" * 100)
     values = joy.update()
 
     for i in values:
