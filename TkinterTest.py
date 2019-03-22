@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 import MotorController
 import MyJoystick
 import time
@@ -8,6 +8,8 @@ root.title("Drongus Debug")
 root.geometry('500x500')
 mc = MotorController.MotorController()
 joy = MyJoystick.Joystick()
+
+print("Test1")
 
 TL = DoubleVar()
 BL = DoubleVar()
@@ -34,13 +36,14 @@ while True:
     BL.set(values["LEFT_Y"])
     TR.set(values["RIGHT_X"])
     BR.set(values["RIGHT_Y"])
-
+    
     mc.reset()
     mc.roll(values["LEFT_X"])
     mc.pitch(values["LEFT_Y"])
     mc.yaw(values["RIGHT_X"])
     mc.thrust(values["RIGHT_Y"])
+    print("Test2")
 
     time.sleep(0.1)
 
-root.mainloop()
+    root.mainloop()
