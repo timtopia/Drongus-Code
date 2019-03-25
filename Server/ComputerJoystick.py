@@ -1,12 +1,22 @@
 import socket
 import sys
 
+import pygame
+
+#Setting up server connection
 HOST, PORT = "10.0.41.243", 9999
-data = "Hello "
 
 
 # Create a socket (SOCK_STREAM means a TCP socket)
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+
+
+#joystick
+pygame.init()
+pygame.joystick.init()
+
+print(pygame.joystick.get_count())
 
 try:
     # Connect to server and send data
