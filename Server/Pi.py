@@ -12,7 +12,8 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
         # self.request is the TCP socket connected to the client
         self.data = self.request.recv(1024).strip()
         print("{} wrote:".format(self.client_address[0]))
-        print(self.data)
+        d = dict(toks.split(":") for toks in self.data.decode("ascii").split(";") if toks)
+        print(d)
         # just send back the same data, but upper-cased
         self.request.sendall(bytes("Recieved", "utf8"))
 

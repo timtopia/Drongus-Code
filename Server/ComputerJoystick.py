@@ -8,9 +8,8 @@ import pygame
 HOST, PORT = "10.0.41.243", 9999
 
 
-# Create a socket (SOCK_STREAM means a TCP socket)
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sock.connect((HOST, PORT))
+
+
 
 
 #truncating the floats from the axis
@@ -57,13 +56,17 @@ while done==False:
 
         print(Rotations)
 
-
+    
     try:
+        # Create a socket (SOCK_STREAM means a TCP socket)
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         # Connect to server and send data
+        sock.connect((HOST, PORT))
         sock.sendall(bytearray(json.dumps(Rotations), 'utf8'))
 
         # Receive data from the server and shut down
         received = str(sock.recv(1024), "utf-8")
+        sock.close
     finally:
         sock.close()
 
