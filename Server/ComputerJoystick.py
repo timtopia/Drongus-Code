@@ -1,6 +1,6 @@
 import socket
 import sys
-
+import json
 import pygame
 
 
@@ -10,6 +10,8 @@ HOST, PORT = "10.0.41.243", 9999
 
 # Create a socket (SOCK_STREAM means a TCP socket)
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.connect((HOST, PORT))
+
 
 #truncating the floats from the axis
 def truncate(n):
@@ -58,13 +60,11 @@ while done==False:
 
     try:
         # Connect to server and send data
-        sock.connect((HOST, PORT))
-        sock.sendall(Rotations)
+        sock.sendall(bytearray(json.dumps(Rotations), 'utf8'))
 
         # Receive data from the server and shut down
         received = str(sock.recv(1024), "utf-8")
     finally:
         sock.close()
 
-    print("Sent:     {}".format(data))
     print("Received: {}".format(received))
