@@ -78,16 +78,12 @@ class MotorConoller():
         motor4.forward(m4speed)
     
 
-class MyTCPHandler(socketserver.BaseRequestHandler):
-    def __init__(self):
-        self.mc = MotorController()
-        """The RequestHandler class for our server.
+mc = MotorController()
 
-        It is instantiated once per connection to the server, and must
-        override the handle() method to implement communication to the
-        client."""
+class MyTCPHandler(socketserver.BaseRequestHandler):
         
     def handle(self):
+        global mc
         # self.request is the TCP socket connected to the client
         self.data = self.request.recv(1024).strip()
         print("{} wrote:".format(self.client_address[0]))
