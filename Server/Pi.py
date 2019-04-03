@@ -78,10 +78,10 @@ class MotorController():
         motor4.forward(m4speed)
     
 
-mc = MotorController()
-
 class MyTCPHandler(socketserver.BaseRequestHandler):
-        
+    def __init__(self, *args, **kwargs):
+        super(MyTCPHandler, self).__init__(*args, **kwargs)
+        self.mc = MotorController()
     def handle(self):
         global mc
         # self.request is the TCP socket connected to the client
