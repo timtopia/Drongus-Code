@@ -94,9 +94,10 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
         #print(binary_to_dict(self.data))
         # just send back the same data, but upper-cased
         self.request.sendall(bytes("Recieved", "utf8"))
-while True:
-    if __name__ == "__main__":
-        HOST, PORT = "0.0.0.0", 9999
+        
+
+if __name__ == "__main__":
+    HOST, PORT = "0.0.0.0", 9999
 
     # Create the server, binding to localhost on port 9999
     server = socketserver.TCPServer((HOST, PORT), MyTCPHandler)
