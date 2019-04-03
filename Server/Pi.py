@@ -75,7 +75,7 @@ class MotorConoller():
         motor1.forward(m1speed)
         motor2.forward(m2speed)
         motor3.forward(m3speed)
-        motor4.forward(m4speed)s
+        motor4.forward(m4speed)
     
 
 class MyTCPHandler(socketserver.BaseRequestHandler):
