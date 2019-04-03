@@ -8,7 +8,7 @@ def binary_to_dict(the_binary):
     d = json.loads(str(the_binary, "utf-8"))  
     return d
 
-class MotorConoller():
+class MotorController():
     #Motor1 = Back Left
     motor1 = Motor(24, 27)
     motor1_enable = OutputDevice(5, initial_value=0)
