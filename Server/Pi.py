@@ -5,7 +5,7 @@ import json
 default = 0
 
 def binary_to_dict(the_binary):
-    d = json.loads(str(the_binary))  
+    d = json.loads(str(the_binary, "utf-8"))  
     return d
 
 class MotorConoller():
