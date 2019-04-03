@@ -79,9 +79,9 @@ class MotorConoller():
     
 
 class MyTCPHandler(socketserver.BaseRequestHandler):
-    def __init__(self):
+    """def __init__(self):
         self.mc = MotorController()
-        """The RequestHandler class for our server.
+        The RequestHandler class for our server.
 
         It is instantiated once per connection to the server, and must
         override the handle() method to implement communication to the
