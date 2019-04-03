@@ -1,11 +1,11 @@
 import socketserver
 from gpiozero import Motor, OutputDevice
+import json
 
 default = 0
 
 def binary_to_dict(the_binary):
-    jsn = ''.join(chr(int(x, 2)) for x in the_binary.split())
-    d = json.loads(jsn)  
+    d = json.loads(str(the_binary))  
     return d
 
 class MotorConoller():
@@ -91,7 +91,7 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
         # self.request is the TCP socket connected to the client
         self.data = self.request.recv(1024).strip()
         print("{} wrote:".format(self.client_address[0]))
-        #print(binary_to_dict(self.data))
+        print(binary_to_dict(self.data))
         # just send back the same data, but upper-cased
         self.request.sendall(bytes("Recieved", "utf8"))
         
