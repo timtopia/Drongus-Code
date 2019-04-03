@@ -60,7 +60,7 @@ class MotorController():
             m1speed = 1
         elif(m1speed < 0):
             m1speed = 0
-        if(m2speed > 1):
+        if(m2speed > 1): 
             m2speed = 1
         elif(m2speed < 0):
             m2speed = 0
@@ -76,18 +76,25 @@ class MotorController():
         motor2.forward(m2speed)
         motor3.forward(m3speed)
         motor4.forward(m4speed)
-    
+
+    def print(self):
+        return (m1speed + ',' + m2speed + ',' + m3speed + ',' + m4speed)
 
 class MyTCPHandler(socketserver.BaseRequestHandler):
     def __init__(self, *args, **kwargs):
         super(MyTCPHandler, self).__init__(*args, **kwargs)
         self.mc = MotorController()
     def handle(self):
-        global mc
         # self.request is the TCP socket connected to the client
         self.data = self.request.recv(1024).strip()
         print("{} wrote:".format(self.client_address[0]))
-        print(binary_to_dict(self.data))
+        dictionary = binary_to_dict(self.data)
+        self.mc.Yaw(dictionary["Yaw"])
+        self.mc.Pitch(dictionary["Pitch"])
+        self.mc.Roll(dictionary["Roll"])
+        self.mc.Thrust(dictionary["Thrust"])
+        self.mc.setMotors()
+        print(self.mc.print())
         # just send back the same data, but upper-cased
         self.request.sendall(bytes("Recieved", "utf8"))
         
