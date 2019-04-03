@@ -81,9 +81,9 @@ class MotorController():
         return (m1speed + ',' + m2speed + ',' + m3speed + ',' + m4speed)
 
 class MyTCPHandler(socketserver.BaseRequestHandler):
-    def __init__(self, *args, **kwargs):
-        super(MyTCPHandler, self).__init__(*args, **kwargs)
-        self.mc = MotorController()
+    mc = MotorController()
+    #def __init__(self, *args, **kwargs):
+    #    super(MyTCPHandler, self).__init__(*args, **kwargs)
     def handle(self):
         # self.request is the TCP socket connected to the client
         self.data = self.request.recv(1024).strip()
