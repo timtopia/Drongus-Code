@@ -62,7 +62,8 @@ class MotorController():
         self.truem1speed = self.m1speed + default
         self.truem2speed = self.m2speed + default
         self.truem3speed = self.m3speed + default
-        self.truem14peed = self.m4speed + default
+        self.truem4speed = self.m4speed + default
+
         if(self.m1speed > 1):
             self.m1speed = 1
         elif(self.m1speed < 0):
