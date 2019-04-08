@@ -29,56 +29,56 @@ class MotorController():
 
     #left negative right positive
     def Yaw(self, value):
-        m1speed -= value
-        m2speed += value
-        m3speed -= value
-        m4speed += value
+        global m1speed -= value
+        global m2speed += value
+        global m3speed -= value
+        global m4speed += value
         
     #down positive up negative    
     def Pitch(self, value):
-        m1speed += value
-        m2speed += value
-        m3speed -= value
-        m4speed -= value
+        global m1speed += value
+        global m2speed += value
+        global m3speed -= value
+        global m4speed -= value
 
     #Left negative Right positive
     def Roll(self, value):
-        m1speed -= value
-        m2speed += value
-        m3speed += value
-        m4speed -= value
+        global m1speed -= value
+        global m2speed += value
+        global m3speed += value
+        global m4speed -= value
         
     def Thrust(self, value):
-        default += value
+        global default += value
 
     def setMotors(self):
-        m1speed += default
-        m2speed += default
-        m3speed += default
-        m4speed += default
-        if(m1speed > 1):
-            m1speed = 1
-        elif(m1speed < 0):
-            m1speed = 0
-        if(m2speed > 1): 
-            m2speed = 1
-        elif(m2speed < 0):
-            m2speed = 0
-        if(m3speed > 1):
-            m3speed = 1
-        elif(m3speed < 0):
-            m3speed = 0
-        if(m4speed > 1):
-            m4speed = 1
-        elif(m4speed < 0):
-            m4speed = 0
-        motor1.forward(m1speed)
-        motor2.forward(m2speed)
-        motor3.forward(m3speed)
-        motor4.forward(m4speed)
+        global m1speed += global default
+        global m2speed += global default
+        global m3speed += global default
+        global m4speed += global default
+        if(global m1speed > 1):
+            global m1speed = 1
+        elif(global m1speed < 0):
+            global m1speed = 0
+        if(global m2speed > 1): 
+            global m2speed = 1
+        elif(global m2speed < 0):
+            global m2speed = 0
+        if(global m3speed > 1):
+            global m3speed = 1
+        elif(global m3speed < 0):
+            global m3speed = 0
+        if(global m4speed > 1):
+            global m4speed = 1
+        elif(global m4speed < 0):
+            global m4speed = 0
+        global motor1.forward(global m1speed)
+        global motor2.forward(global m2speed)
+        global motor3.forward(global m3speed)
+        global motor4.forward(global m4speed)
 
     def print(self):
-        return (m1speed + ',' + m2speed + ',' + m3speed + ',' + m4speed)
+        return (global m1speed + ',' + global m2speed + ',' + global m3speed + ',' + global m4speed)
 
 class MyTCPHandler(socketserver.BaseRequestHandler):
     mc = MotorController()
