@@ -80,7 +80,7 @@ class MotorController():
         self.motor4.forward(self.m4speed)
 
     def print(self):
-        return (str(self.m1speed) + ',' + self.m2speed + ',' + self.m3speed + ',' + self.m4speed)
+        return (str(self.m1speed) + ',' + str(self.m2speed) + ',' + str(self.m3speed) + ',' + str(self.m4speed))
 
 class MyTCPHandler(socketserver.BaseRequestHandler):
     mc = MotorController()
