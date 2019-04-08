@@ -29,17 +29,17 @@ class MotorController():
 
     #left negative right positive
     def Yaw(self, value):
-        global m1speed -= value
-        global m2speed += value
-        global m3speed -= value
-        global m4speed += value
+        global m1speed = global m1speed - value
+        global m2speed = global m2speed + value
+        global m3speed = global m3speed - value
+        global m4speed = global m4speed + value
         
     #down positive up negative    
     def Pitch(self, value):
-        global m1speed += value
-        global m2speed += value
-        global m3speed -= value
-        global m4speed -= value
+        global m1speed = global m1speed + value
+        global m2speed = global m2speed + value
+        global m3speed = global m3speed - value
+        global m4speed = global m4speed - value
 
     #Left negative Right positive
     def Roll(self, value):
@@ -49,7 +49,7 @@ class MotorController():
         global m4speed = global m4speed - value
         
     def Thrust(self, value):
-        global default += value
+        global default = global default + value
 
     def setMotors(self):
         global m1speed += global default
