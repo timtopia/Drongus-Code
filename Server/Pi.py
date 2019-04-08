@@ -49,13 +49,15 @@ class MotorController():
         self.m4speed -= value
         
     def Thrust(self, value):
-        global default += value
+        global default
+        default += value
 
     def setMotors(self):
-        self.m1speed += global default
-        self.m2speed += global default
-        self.m3speed += global default
-        self.m4speed += globaldefault
+        global default
+        self.m1speed += default
+        self.m2speed += default
+        self.m3speed += default
+        self.m4speed += default
         if(self.m1speed > 1):
             self.m1speed = 1
         elif(self.m1speed < 0):
