@@ -63,26 +63,26 @@ class MotorController():
         self.truem2speed = self.m2speed + default
         self.truem3speed = self.m3speed + default
         self.truem14peed = self.m4speed + default
-        if(self.m1speed > 1):
-            self.m1speed = 1
-        elif(self.m1speed < 0):
-            self.m1speed = 0
-        if(self.m2speed > 1): 
-            self.m2speed = 1
-        elif(self.m2speed < 0):
-            self.m2speed = 0
-        if(self.m3speed > 1):
-            self.m3speed = 1
-        elif(self.m3speed < 0):
-            self.m3speed = 0
-        if(self.m4speed > 1):
-            self.m4speed = 1
-        elif(self.m4speed < 0):
-            self.m4speed = 0
-        self.motor1.forward(self.m1speed)
-        self.motor2.forward(self.m2speed)
-        self.motor3.forward(self.m3speed)
-        self.motor4.forward(self.m4speed)
+        if(self.truem1speed > 1):
+            self.truem1speed = 1
+        elif(self.truem1speed < 0):
+            self.truem1speed = 0
+        if(self.truem2speed > 1): 
+            self.truem2speed = 1
+        elif(self.truem2speed < 0):
+            self.truem2speed = 0
+        if(self.truem3speed > 1):
+            self.truem3speed = 1
+        elif(self.truem3speed < 0):
+            self.truem3speed = 0
+        if(self.truem4speed > 1):
+            self.truem4speed = 1
+        elif(self.truem4speed < 0):
+            self.truem4speed = 0
+        self.motor1.forward(self.truem1speed)
+        self.motor2.forward(self.truem2speed)
+        self.motor3.forward(self.truem3speed)
+        self.motor4.forward(self.truem4speed)
 
     def print(self):
         return (str(self.truem1speed) + ',' + str(self.truem2speed) + ',' + str(self.truem3speed) + ',' + str(self.truem4speed))
@@ -96,10 +96,14 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
         self.data = self.request.recv(1024).strip()
         print("{} wrote:".format(self.client_address[0]))
         dictionary = binary_to_dict(self.data)
-        self.mc.Yaw(dictionary["Yaw"])
-        self.mc.Pitch(dictionary["Pitch"])
-        self.mc.Roll(dictionary["Roll"])
-        self.mc.Thrust(dictionary["Thrust"])
+        if abs(dictionary["Yaw"])>.1:
+            self.mc.Yaw(dictionary["Yaw"])
+        if abs(dictionary["Pitch"])>.1:    
+            self.mc.Pitch(dictionary["Pitch"])
+        if abs(dictionary["Roll"])>.1:
+            self.mc.Roll(dictionary["Roll"])
+        if abs(dictionary["Thrust"])>.1:
+            self.mc.Thrust(dictionary["Thrust"])
         self.mc.setMotors()
         print(self.mc.print())
         # just send back the same data, but upper-cased
