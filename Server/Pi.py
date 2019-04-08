@@ -30,55 +30,55 @@ class MotorController():
     #left negative right positive
     def Yaw(self, value):
         self.m1speed -= value
-        m2speed += value
-        m3speed -= value
-        m4speed += value
+        self.m2speed += value
+        self.m3speed -= value
+        self.m4speed += value
         
     #down positive up negative    
     def Pitch(self, value):
-        m1speed += value
-        m2speed += value
-        m3speed -= value
-        m4speed -= value
+        self.m1speed += value
+        self.m2speed += value
+        self.m3speed -= value
+        self.m4speed -= value
 
     #Left negative Right positive
     def Roll(self, value):
-        m1speed -= value
-        m2speed += value
-        m3speed += value
-        m4speed -= value
+        self.m1speed -= value
+        self.m2speed += value
+        self.m3speed += value
+        self.m4speed -= value
         
     def Thrust(self, value):
         default += value
 
     def setMotors(self):
-        m1speed += default
-        m2speed += default
-        m3speed += default
-        m4speed += default
-        if(m1speed > 1):
-            m1speed = 1
-        elif(m1speed < 0):
-            m1speed = 0
-        if(m2speed > 1): 
-            m2speed = 1
-        elif(m2speed < 0):
-            m2speed = 0
-        if(m3speed > 1):
-            m3speed = 1
-        elif(m3speed < 0):
-            m3speed = 0
-        if(m4speed > 1):
-            m4speed = 1
-        elif(m4speed < 0):
-            m4speed = 0
-        motor1.forward(m1speed)
-        motor2.forward(m2speed)
-        motor3.forward(m3speed)
-        motor4.forward(m4speed)
+        self.m1speed += default
+        self.m2speed += default
+        self.m3speed += default
+        self.m4speed += default
+        if(self.m1speed > 1):
+            self.m1speed = 1
+        elif(self.m1speed < 0):
+            self.m1speed = 0
+        if(self.m2speed > 1): 
+            self.m2speed = 1
+        elif(self.m2speed < 0):
+            self.m2speed = 0
+        if(self.m3speed > 1):
+            self.m3speed = 1
+        elif(self.m3speed < 0):
+            self.m3speed = 0
+        if(self.m4speed > 1):
+            self.m4speed = 1
+        elif(self.m4speed < 0):
+            self.m4speed = 0
+        self.motor1.forward(self.m1speed)
+        self.motor2.forward(self.m2speed)
+        self.motor3.forward(self.m3speed)
+        self.motor4.forward(self.m4speed)
 
     def print(self):
-        return (m1speed + ',' + m2speed + ',' + m3speed + ',' + m4speed)
+        return (self.m1speed + ',' + self.m2speed + ',' + self.m3speed + ',' + self.m4speed)
 
 class MyTCPHandler(socketserver.BaseRequestHandler):
     mc = MotorController()
