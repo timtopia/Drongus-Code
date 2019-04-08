@@ -43,10 +43,10 @@ class MotorController():
 
     #Left negative Right positive
     def Roll(self, value):
-        global m1speed -= value
-        global m2speed += value
-        global m3speed += value
-        global m4speed -= value
+        global m1speed = global m1speed - value
+        global m2speed = global m2speed + value
+        global m3speed = global m3speed + value
+        global m4speed = global m4speed - value
         
     def Thrust(self, value):
         global default += value
