@@ -27,6 +27,11 @@ class MotorController():
     m3speed=0
     m4speed=0
 
+    truem1speed = 0
+    truem2speed = 0
+    truem3speed = 0
+    truem4speed = 0
+
     #left negative right positive
     def Yaw(self, value):
         self.m1speed -= value
@@ -54,10 +59,10 @@ class MotorController():
 
     def setMotors(self):
         global default
-        self.m1speed += default
-        self.m2speed += default
-        self.m3speed += default
-        self.m4speed += default
+        self.truem1speed = self.m1speed + default
+        self.truem2speed = self.m2speed + default
+        self.truem3speed = self.m3speed + default
+        self.truem14peed = self.m4speed + default
         if(self.m1speed > 1):
             self.m1speed = 1
         elif(self.m1speed < 0):
@@ -80,7 +85,7 @@ class MotorController():
         self.motor4.forward(self.m4speed)
 
     def print(self):
-        return (str(self.m1speed) + ',' + str(self.m2speed) + ',' + str(self.m3speed) + ',' + str(self.m4speed))
+        return (str(self.truem1speed) + ',' + str(self.truem2speed) + ',' + str(self.truem3speed) + ',' + str(self.truem4speed))
 
 class MyTCPHandler(socketserver.BaseRequestHandler):
     mc = MotorController()
