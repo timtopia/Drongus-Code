@@ -61,20 +61,20 @@ class MotorController():
     def setMotors(self):
         if(self.m1speed > 1):
             self.m1speed = 1
-        elif(self.m1speed < 0):
-            self.m1speed = 0
+        elif(self.m1speed < -1):
+            self.m1speed = -1
         if(self.m2speed > 1): 
             self.m2speed = 1
-        elif(self.m2speed < 0):
-            self.m2speed = 0
+        elif(self.m2speed < -1):
+            self.m2speed = -1
         if(self.m3speed > 1):
             self.m3speed = 1
-        elif(self.m3speed < 0):
-            self.m3speed = 0
+        elif(self.m3speed < -1):
+            self.m3speed = -1
         if(self.m4speed > 1):
             self.m4speed = 1
-        elif(self.m4speed < 0):
-            self.m4speed = 0
+        elif(self.m4speed < -1):
+            self.m4speed = -1
         
         global default
         self.truem1speed = self.m1speed + default
