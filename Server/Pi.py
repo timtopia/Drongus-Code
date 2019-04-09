@@ -33,13 +33,13 @@ class MotorController():
     truem4speed = 0
 
     #left negative right positive
-    def Yaw(self, value):
+    #def Yaw(self, value):
         
     #down positive up negative    
-    def Pitch(self, value):
+    #def Pitch(self, value):
 
     #Left negative Right positive
-    def Roll(self, value):
+    #def Roll(self, value):
         
     def Thrust(self, value):
         global default
