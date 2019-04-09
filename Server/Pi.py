@@ -34,24 +34,12 @@ class MotorController():
 
     #left negative right positive
     def Yaw(self, value):
-        self.m1speed -= value
-        self.m2speed += value
-        self.m3speed -= value
-        self.m4speed += value
         
     #down positive up negative    
     def Pitch(self, value):
-        self.m1speed += value
-        self.m2speed += value
-        self.m3speed -= value
-        self.m4speed -= value
 
     #Left negative Right positive
     def Roll(self, value):
-        self.m1speed -= value
-        self.m2speed += value
-        self.m3speed += value
-        self.m4speed -= value
         
     def Thrust(self, value):
         global default
@@ -63,23 +51,6 @@ class MotorController():
         self.truem2speed = self.m2speed + default
         self.truem3speed = self.m3speed + default
         self.truem4speed = self.m4speed + default
-
-        if(self.m1speed > 1):
-            self.m1speed = 1
-        elif(self.m1speed < 0):
-            self.m1speed = 0
-        if(self.m2speed > 1): 
-            self.m2speed = 1
-        elif(self.m2speed < 0):
-            self.m2speed = 0
-        if(self.m3speed > 1):
-            self.m3speed = 1
-        elif(self.m3speed < 0):
-            self.m3speed = 0
-        if(self.m4speed > 1):
-            self.m4speed = 1
-        elif(self.m4speed < 0):
-            self.m4speed = 0
         
         if(self.truem1speed > 1):
             self.truem1speed = 1
