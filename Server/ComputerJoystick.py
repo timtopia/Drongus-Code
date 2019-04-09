@@ -1,5 +1,6 @@
 import socket
 import sys
+import time
 import json
 import pygame
 
@@ -71,3 +72,4 @@ while done==False:
         sock.close()
 
     print("Received: {}".format(received))
+    time.sleep(.1)

@@ -115,13 +115,12 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
         print("{} wrote:".format(self.client_address[0]))
         dictionary = binary_to_dict(self.data)
         if abs(dictionary["Yaw"])>.1:
-            self.mc.Yaw(dictionary["Yaw"])
-        if abs(dictionary["Pitch"])>.1:    
-            self.mc.Pitch(dictionary["Pitch"])
+            self.mc.Yaw(dictionary["Yaw"]*.1)
+            self.mc.Pitch(dictionary["Pitch"]*.1)
         if abs(dictionary["Roll"])>.1:
-            self.mc.Roll(dictionary["Roll"])
+            self.mc.Roll(dictionary["Roll"]*.1)
         if abs(dictionary["Thrust"])>.1:
-            self.mc.Thrust(dictionary["Thrust"])
+            self.mc.Thrust(dictionary["Thrust"]*.1)
         self.mc.setMotors()
         print(self.mc.print())
         # just send back the same data, but upper-cased
