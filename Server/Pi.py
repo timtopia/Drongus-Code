@@ -110,7 +110,7 @@ class MotorController():
         self.motor4.forward(self.truem4speed)
 
     def print(self):
-        return (str(int(self.truem1speed*1000)/1000) + ',' + str(int(self.truem2speed*1000)/1000) + ',' + str(int(self.truem3speed*1000)/1000) + ',' + str(int(self.truem1speed*1000)/1000))
+        return (str(int(self.truem1speed*1000)/1000) + ',' + str(int(self.truem2speed*1000)/1000) + ',' + str(int(self.truem3speed*1000)/1000) + ',' + str(int(self.truem4speed*1000)/1000))
 
 class MyTCPHandler(socketserver.BaseRequestHandler):
     mc = MotorController()
