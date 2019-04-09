@@ -72,4 +72,4 @@ while done==False:
         sock.close()
 
     print("Received: {}".format(received))
-    time.sleep(.1)
+    time.sleep(.01)
