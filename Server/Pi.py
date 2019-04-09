@@ -123,6 +123,7 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
         dictionary = binary_to_dict(self.data)
         if abs(dictionary["Yaw"])>.1:
             self.mc.Yaw(dictionary["Yaw"]*.1)
+        if abs(dictionary["Pitch"])>.1:
             self.mc.Pitch(dictionary["Pitch"]*.1)
         if abs(dictionary["Roll"])>.1:
             self.mc.Roll(dictionary["Roll"]*.1)
