@@ -23,6 +23,7 @@ class PID:
         self.k_i = k_i
         self.k_d = k_d
         self.integral = 0
+
     def update(self,target,current):
         error = target - current 
         derivative = self.previous_error - error
@@ -31,20 +32,21 @@ class PID:
         self.previous_error = error
         self.integral += error
 
+        return output
         
-
 class Drone:
+    motors = MotorController()
     max_target_accel = 1
+    thrust_pid = PID(1,0,0)
 
     def thrust(self, joy_val):
         target_acceleration = 9.8 #graviational constant
         target_acceleration += joy_val * max_target_accel
 
         error = target_acceleration - acceleration_global_z
-        motor_speed = k_p_thrust * error + k_i * integral + k_d * derivative
-        set_all_motors(error)
-        print(self.motor_speeds)
-    
+        output = thrust_pid.update(error)
+        motor.set_all_motors(output)
+
     def run_teleop(self,joystick_values):
         self.thrust(joystick_values["Thrust"])
         
