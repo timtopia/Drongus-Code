@@ -3,10 +3,10 @@
 
 ## Movement
 
-- [ ] Using motors
+- [x] Using motors
 - [ ] All movement directions
-- [ ] Speed controller
-- [ ] Gyroscope
+- [x] Speed controller
+- [x] Gyroscope
 
 ## Vision
 
