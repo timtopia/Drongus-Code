@@ -21,5 +21,4 @@
 - [ ] Fly through loop
 - [ ] Land safely
 
-> Flying things are nice :weary:
->ni:b::b:a
+> Flying things are nice
