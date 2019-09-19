@@ -6,7 +6,7 @@ import pygame
 
 
 #Setting up server connection
-HOST, PORT = "10.0.41.243", 9999
+HOST, PORT = "169.254.37.119", 9999
 
 
 
@@ -63,6 +63,7 @@ while done==False:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         # Connect to server and send data
         sock.connect((HOST, PORT))
+        print("Asdf")
         sock.sendall(bytearray(json.dumps(Rotations), 'utf8'))
 
         # Receive data from the server and shut down
