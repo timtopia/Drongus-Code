@@ -2,7 +2,7 @@ import socketserver
 from gpiozero import Motor, OutputDevice
 import json
 
-default = 0
+thrustlevel = 0 
 
 def binary_to_dict(the_binary):
     d = json.loads(str(the_binary, "utf-8"))  
@@ -55,8 +55,8 @@ class MotorController():
         self.m4speed -= value
         
     def Thrust(self, value):
-        global default
-        default += value
+        global thrustlevel 
+        thrustlevel += value
 
     def setMotors(self):
         if(self.m1speed > 1):
@@ -76,14 +76,17 @@ class MotorController():
         elif(self.m4speed < -1):
             self.m4speed = -1
         
-        global default
-        self.truem1speed = self.m1speed + default
+        global thrustlevel 
+        if self.m1speed+thrustlevel < 1
+        self.truem1speed = self.m1speed + thrustlevel
+    else
+        self.truem1speed = self.m1speed 
         self.m1speed = 0
-        self.truem2speed = self.m2speed + default
+        self.truem2speed = self.m2speed + thrustlevel 
         self.m2speed = 0
-        self.truem3speed = self.m3speed + default
+        self.truem3speed = self.m3speed + thrustlevel 
         self.m3speed = 0
-        self.truem4speed = self.m4speed + default
+        self.truem4speed = self.m4speed + thrustlevel 
         self.m4speed = 0
 
         
